@@ -1,3 +1,7 @@
 .navbar{
     background-color: green;
 }
+
+.dropdown:hover .drop-content{
+    display: grid;
+}
