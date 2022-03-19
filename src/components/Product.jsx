@@ -46,7 +46,7 @@ const [products, setProducts] = useState([])
                
             </select>
         </div>
-        <div className="grid grid-cols-3 mt-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 mt-6">
 {products?.map((pr)=>{
     return <div className="m-5 relative" >
             <img src={pr.product_img} alt={pr.title} />
