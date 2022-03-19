@@ -14,7 +14,7 @@ export const Main = () =>{
     <div className="w-1/4 inline-block align-top pl-10">
     <Sidebar />
     </div>
-    <div className="w-3/4 inline-block align-top h-20">
+    <div className="lg:w-3/4  inline-block align-top h-20">
 <Product />
     </div>
     </div>)

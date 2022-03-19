@@ -5,7 +5,24 @@ export const Product = ()=>{
 const [products, setProducts] = useState([])
     function handleChange(event) {
         let value =event.target.value
-        console.log(value)
+       if(value == "all"){
+        axios.get("https://klarna-clone.herokuapp.com/product")
+        .then(res => { 
+        setProducts(res.data)
+        }) 
+       }
+       else{
+        axios.get("https://klarna-clone.herokuapp.com/product")
+        .then(res => { 
+            var arr = res.data
+          arr.sort(function(a,b){
+            if(a.tag < b.tag) { return -1; }
+            if(a.tag > b.tag) { return 1; }
+            return 0;
+          })
+          setProducts(arr)
+            }) 
+       }
       }
     
       useEffect(()=>{
@@ -14,6 +31,8 @@ const [products, setProducts] = useState([])
         setProducts(res.data)
         })
         },[])
+
+
     return(
         <>
         <div>
@@ -29,14 +48,13 @@ const [products, setProducts] = useState([])
         </div>
         <div className="grid grid-cols-3">
 {products?.map((el)=>{
-    console.log(el)
-    return <div >
+    return <div className="m-12" >
             <img src={el.product_img} alt={el.title} />
             <p style={{fontWeight:"bolder"}}>{el.title}</p>
             <p>{el.tag}</p>
-            <div className="offer" >
-            <p>{el.offer}</p>
-            <p>{el.percentage}</p>
+            <div className="absolute text-bold z-10" >
+            <p className="text-bold">{el.offer}</p>
+            <p className="text-bold">{el.percentage}</p>
             </div>
         </div>
 })}
