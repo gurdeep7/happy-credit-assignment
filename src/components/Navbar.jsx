@@ -3,12 +3,12 @@ import {BiMenu} from "react-icons/bi"
 import {AiOutlineArrowRight} from "react-icons/ai"
 export const Navbar = ()=>{
 return<>
-<div className="flex border-b-2 border-gray-200 ">
+<div className="flex fixed border-b-2 bg-white border-gray-200 w-full font-sans z-10">
  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfafjDTFh7LZPeAKd5zU2Cr1J3QG6st80iAeX_9xMVr6A-yZaz0oiBdx0KotIQ2h4Ah0s&usqp=CAU" className="m-2 h-14"/>
 <div className="hidden font-extrabold lg:flex">
 <button className=" w-28 font-bold bg-slate-300 hover:text-teal-500 hover:underline dropdown">
 Shop
-<div className="absolute hidden drop-content  grid-cols-3 mt-6 w-screen shadow-2xl">
+<div className="absolute hidden bg-white drop-content  grid-cols-3 mt-6 w-screen shadow-2xl">
 <div className="w-full">
     <div className="h-12 font-bold text-black hover:text-teal-500 text-left text-2xl pl-20">Deals</div>
     <div className="h-12 font-bold text-black hover:text-teal-500 text-left text-2xl pl-20">Trends</div>
@@ -17,7 +17,7 @@ Shop
     <div className="h-12 font-bold text-black hover:text-teal-500 text-left text-2xl pl-20">In Store</div>
     <div className="h-12 font-bold text-black hover:text-teal-500 text-left text-2xl pl-20">Rewards club</div>
 </div>
-<div className="w-full">
+<div className="w-full"> 
 <div className="h-12 text-black hover:text-teal-500 text-left font-normal italic pl-20">Categories</div>
     <div className="h-12 font-bold text-black hover:text-teal-500 text-left text-2xl pl-20">Auto</div>
     <div className="h-12 font-bold text-black hover:text-teal-500 text-left text-2xl pl-20">Beauty</div>
@@ -60,9 +60,11 @@ Help
 <button className="border-2 hidden m-3 lg:inline-block rounded-2xl w-28 bg-black text-white hover:bg-white hover:text-black pb-1 border-black">
     Get the app
 </button>
+
+{/* Hamburger menu for mobile screen */}
 <button className="inline-block relative p-3 lg:hidden pb-1 hamburger">
 <BiMenu className="text-4xl block" />
-<div className="absolute hidden right-0 mt-3 w-96 hamburger-content shadow-2xl">
+<div className="absolute hidden bg-white right-0 mt-3 w-96 hamburger-content shadow-2xl">
 <div className="h-20 font-bold text-black hover:text-teal-500 mt-3 text-3xl ">Shop</div>
 <div className="h-20 font-bold text-black hover:text-teal-500  text-3xl ">How it works</div>
 <div className="h-20 font-bold text-black hover:text-teal-500  text-3xl ">Play in 4</div>
