@@ -2,7 +2,17 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 export const Product = ()=>{
+const [data, getData]= useState([])
 const [products, setProducts] = useState([])
+
+const handleSearch = (event) => {
+    const search = event.target.value;
+    const filteredProducts = data.filter((product) => {
+      return product.title.toLowerCase().includes(search.toLowerCase());
+    });
+    console.log(search)
+    setProducts(filteredProducts);
+  };
     function handleChange(event) {
         let value =event.target.value
        if(value == "all"){
@@ -29,6 +39,7 @@ const [products, setProducts] = useState([])
         axios.get("https://klarna-clone.herokuapp.com/product")
         .then(res => { 
         setProducts(res.data)
+        getData(res.data)
         })
         },[])
 
@@ -36,7 +47,9 @@ const [products, setProducts] = useState([])
     return(
         <>
         <div>
-            <input type="text" className="w-full h-12 text-2xl border-b-2 border-black focus:border-0" placeholder="Search..."/>
+            <input type="text" className="w-full h-12 text-2xl border-b-2 border-black focus:border-0" onChange={(event)=>{
+                handleSearch(event)
+            }} placeholder="Search..."/>
         </div>
         <div>
         <select onChange={handleChange} className="absolute right-0 border-2 mt-3 border-blue-400">
