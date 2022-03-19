@@ -16,8 +16,8 @@ const [products, setProducts] = useState([])
         .then(res => { 
             var arr = res.data
           arr.sort(function(a,b){
-            if(a.tag < b.tag) { return -1; }
-            if(a.tag > b.tag) { return 1; }
+            if(a.title< b.title) { return -1; }
+            if(a.title> b.title) { return 1; }
             return 0;
           })
           setProducts(arr)
