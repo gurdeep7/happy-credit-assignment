@@ -7,7 +7,7 @@ https://mystifying-dijkstra-df6c38.netlify.app/
 Clone the project
 
 ```bash
-  git clone https://github.com/gurdeep7/tagmango_fe.git
+  git clone https://github.com/gurdeep7/happy-credit-assignment.git
 ```
 
 Install dependencies
