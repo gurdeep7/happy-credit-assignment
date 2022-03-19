@@ -1,11 +1,19 @@
-export const Product = ()=>{
+import axios from "axios"
+import { useEffect, useState } from "react"
 
+export const Product = ()=>{
+const [products, setProducts] = useState([])
     function handleChange(event) {
         let value =event.target.value
         console.log(value)
       }
     
-
+      useEffect(()=>{
+        axios.get("https://klarna-clone.herokuapp.com/product")
+        .then(res => { 
+        setProducts(res.data)
+        })
+        },[])
     return(
         <>
         <div>
@@ -18,6 +26,20 @@ export const Product = ()=>{
                 <option value="all">Newest</option>
                
             </select>
+        </div>
+        <div className="grid grid-cols-3">
+{products?.map((el)=>{
+    console.log(el)
+    return <div >
+            <img src={el.product_img} alt={el.title} />
+            <p style={{fontWeight:"bolder"}}>{el.title}</p>
+            <p>{el.tag}</p>
+            <div className="offer" >
+            <p>{el.offer}</p>
+            <p>{el.percentage}</p>
+            </div>
+        </div>
+})}
         </div>
         </>
     )
