@@ -5,3 +5,7 @@
 .dropdown:hover .drop-content{
     display: grid;
 }
+
+.hamburger:hover .hamburger-content{
+    display: block;
+}
