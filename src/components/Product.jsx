@@ -47,14 +47,14 @@ const [products, setProducts] = useState([])
             </select>
         </div>
         <div className="grid grid-cols-3">
-{products?.map((el)=>{
-    return <div className="m-12" >
-            <img src={el.product_img} alt={el.title} />
-            <p style={{fontWeight:"bolder"}}>{el.title}</p>
-            <p>{el.tag}</p>
-            <div className="absolute text-bold z-10" >
-            <p className="text-bold">{el.offer}</p>
-            <p className="text-bold">{el.percentage}</p>
+{products?.map((pr)=>{
+    return <div className="m-5 relative" >
+            <img src={pr.product_img} alt={pr.title} />
+            <p style={{fontWeight:"bolder"}}>{pr.title}</p>
+            <p>{pr.tag}</p>
+            <div className="absolute text-white bottom-16 text-bold z-10" >
+            <p className="text-5xl">{pr.offer}</p>
+            <p className="text-2xl">{pr.percentage}</p>
             </div>
         </div>
 })}
